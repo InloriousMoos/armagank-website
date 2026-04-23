@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publications — Armağan Karahanoğlu</title>
+  <meta name="description" content="Publications by Armağan Karahanoğlu. Research on personal health technologies, self-tracking, sports HCI and data sensemaking. CHI, DIS, IJHCI and more.">
+  <meta name="author" content="Armağan Karahanoğlu">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Publications — Armağan Karahanoğlu","url":"https://armagank.com/publications.html"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#f2f0eb;--bg-2:#e8e5de;--bg-3:#ebe8e1;--bg-4:#e2dfd8;--bg-5:#d8d5ce;--teal:#21bda1;--teal-d:#0f6e56;--blue:#21759b;--ink:#0f0f0f;--muted:rgba(15,15,15,0.55);--subtle:rgba(15,15,15,0.38);--border:rgba(15,15,15,0.1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+    a { color: inherit; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: var(--bg); border-bottom: 0.5px solid var(--border); }
+    .nav-logo img { height: 26px; }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--subtle); text-decoration: none; padding: 5px 14px; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-tag { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.04em; }
+
+    .page-header { background: var(--bg-2); padding: 64px 52px 52px; border-bottom: 0.5px solid var(--border); }
+    .page-header-eyebrow { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+    .page-header h1 { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
+    .page-header p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 580px; }
+    .page-header a { color: var(--blue); text-decoration: none; }
+    .page-header a:hover { text-decoration: underline; }
+
+    .content { max-width: 960px; margin: 0 auto; padding: 56px 52px; }
+    .block-label { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--subtle); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+    .block-label::before { content: ''; width: 18px; height: 0.5px; background: rgba(15,15,15,0.2); flex-shrink: 0; }
+
+    .year-group { margin-bottom: 48px; }
+    .year-label { font-family: 'Syne', sans-serif; font-size: 28px; font-weight: 800; color: rgba(15,15,15,0.08); margin-bottom: 16px; letter-spacing: -0.03em; }
+
+    .pub-row {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: 0 24px; padding: 20px 0;
+      border-bottom: 0.5px solid var(--border);
+      align-items: start;
+    }
+    .pub-row:last-child { border-bottom: none; }
+
+    .pub-badge { display: inline-block; font-family: 'Syne Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; margin-top: 3px; }
+    .pub-badge-award   { background: rgba(186,117,23,0.12); color: #854f0b; }
+    .pub-badge-open    { background: rgba(33,189,161,0.12);  color: #0f6e56; }
+    .pub-badge-conf    { background: rgba(33,117,155,0.12);  color: #21759b; }
+    .pub-badge-journal { background: rgba(80,80,80,0.1);     color: rgba(15,15,15,0.5); }
+
+    .pub-body {}
+    .pub-title { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.4; margin-bottom: 6px; }
+    .pub-authors { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
+    .pub-authors strong { color: var(--ink); font-weight: 500; }
+    .pub-venue { font-size: 12px; font-weight: 300; color: var(--muted); margin-bottom: 8px; font-style: italic; }
+    .pub-links { display: flex; gap: 12px; }
+    .pub-link { font-family: 'Syne Mono', monospace; font-size: 9px; color: var(--teal); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
+    .pub-link:hover { text-decoration: underline; }
+    .pub-link-doi { color: var(--blue); }
+
+    .scholar-cta { margin-top: 48px; padding: 32px; background: var(--bg-2); border: 0.5px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .scholar-cta p { font-size: 14px; font-weight: 300; color: var(--muted); }
+    .btn-ghost { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle); background: none; border: 0.5px solid rgba(15,15,15,0.2); padding: 10px 24px; cursor: pointer; border-radius: 2px; text-decoration: none; display: inline-block; transition: all 0.15s; white-space: nowrap; }
+    .btn-ghost:hover { color: var(--ink); border-color: rgba(15,15,15,0.5); }
+
+    .contact-strip { background: var(--blue); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .contact-left { font-size: 20px; font-weight: 500; color: #f2f0eb; line-height: 1.35; }
+    .contact-left span { color: rgba(242,240,235,0.5); font-weight: 300; }
+    .contact-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; }
+    .contact-email { font-family: 'Syne Mono', monospace; font-size: 13px; color: #f2f0eb; text-decoration: none; }
+    .contact-links { display: flex; gap: 16px; }
+    .contact-link { font-family: 'Syne Mono', monospace; font-size: 9px; color: rgba(242,240,235,0.5); letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
+    .contact-link:hover { color: #f2f0eb; }
+    footer { background: var(--bg-2); border-top: 0.5px solid var(--border); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-l, .footer-r { font-family: 'Syne Mono', monospace; font-size: 9px; color: rgba(15,15,15,0.3); letter-spacing: 0.06em; }
+
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; } .nav-links { display: none; }
+      .page-header, .content { padding-left: 20px; padding-right: 20px; }
+      .pub-row { grid-template-columns: 1fr; gap: 8px 0; }
+      .scholar-cta { flex-direction: column; }
+      .contact-strip { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
+      .contact-right { align-items: flex-start; }
+      footer { padding: 14px 20px; flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://armagank.com/wp-content/uploads/2020/10/logo_54.png" alt="Armağan Karahanoğlu"
+      onerror="this.outerHTML='<span style=\'font-family:Syne,sans-serif;font-size:14px;font-weight:700;color:#0f0f0f\'>Armağan K.</span>'">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publications.html" class="active">Publications</a></li>
+    <li><a href="supervision.html">Supervision</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-tag">UT · Enschede · NL</div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-eyebrow">Publications</div>
+  <h1>Key recent publications<br>2022 – 2025</h1>
+  <p>A selection of recent publications. For a complete and up-to-date list, see my <a href="https://scholar.google.com/citations?hl=en&user=ATBkBAwAAAAJ" target="_blank" rel="noopener">Google Scholar profile</a>.</p>
+</header>
+
+<main class="content">
+
+  <div class="year-group">
+    <div class="year-label">2025</div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-open">Open access</span>
+      <div class="pub-body">
+        <p class="pub-title">Selective Trust: Understanding Human-AI Partnerships in Personal Health Decision-Making Process</p>
+        <p class="pub-authors">Arum, S., Genç, U., Reidsma, D. & <strong>Karahanoğlu, A.</strong></p>
+        <p class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI '25), Yokohama, Japan</p>
+        <div class="pub-links">
+          <a href="http://armagank.com/wp-content/uploads/2025/02/2025_Selective-Trust.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="https://doi.org/10.1145/3706598.3713462" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-conf">DIS 2025</span>
+      <div class="pub-body">
+        <p class="pub-title">Changing Health Goals with Personal Informatics: A Longitudinal Study</p>
+        <p class="pub-authors">Ekhtiar, T., <strong>Karahanoğlu, A.</strong>, Gouveia, R., Ludden, G.</p>
+        <p class="pub-venue">ACM Designing Interactive Systems Conference (DIS '25), Madeira, Portugal</p>
+        <div class="pub-links">
+          <a href="https://dl.acm.org/doi/pdf/10.1145/3715336.3735813" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-journal">Journal</span>
+      <div class="pub-body">
+        <p class="pub-title">Freehabilitation: A Design Research Project on Exercise Rehabilitation</p>
+        <p class="pub-authors"><strong>Karahanoğlu, A.</strong> et al.</p>
+        <p class="pub-venue">Disability and Rehabilitation: Assistive Technology, 2025</p>
+        <div class="pub-links">
+          <a href="https://www.tandfonline.com/doi/pdf/10.1080/17483107.2025.2493223" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-conf">EKSIG 2025</span>
+      <div class="pub-body">
+        <p class="pub-title">Body Maps and Women's Embodied Experiences in Digital Health</p>
+        <p class="pub-authors">Hofstee, D., <strong>Karahanoğlu, A.</strong></p>
+        <p class="pub-venue">EKSIG 2025 — Research through Design Society</p>
+        <div class="pub-links">
+          <a href="https://dl.designresearchsociety.org/cgi/viewcontent.cgi?article=1009&context=eksig" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2024</div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-award">🏆 Honorable mention</span>
+      <div class="pub-body">
+        <p class="pub-title">Is it just a score? Understanding and Supporting Runners' Training Load Management Practices Beyond Sports Tracking</p>
+        <p class="pub-authors"><strong>Karahanoğlu, A.</strong>, Coskun, A., Postma, D., Scheltinga, B., Gouveia, R., Reidsma, D. & Renalda, J.</p>
+        <p class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI '24), Honolulu, HI, USA</p>
+        <div class="pub-links">
+          <a href="http://armagank.com/wp-content/uploads/2024/02/2024_Is-it-just-a-score.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="https://doi.org/10.1145/3613904.3642051" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-open">Open access</span>
+      <div class="pub-body">
+        <p class="pub-title">From Metrics to Experiences: Investigating How Sport Data Shapes the Social Context, Self-Determination and Motivation of Athletes</p>
+        <p class="pub-authors">Postma, D., van Delden, R., Reidsma, D. & <strong>Karahanoğlu, A.</strong></p>
+        <p class="pub-venue">Interacting with Computers, iwae012, 2024</p>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1093/iwc/iwae012" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-conf">CHI 2024</span>
+      <div class="pub-body">
+        <p class="pub-title">Grand Challenges in SportsHCI</p>
+        <p class="pub-authors">Elvitigala, D., <strong>Karahanoğlu, A.</strong>, Matviienko, A. et al.</p>
+        <p class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI '24), Honolulu, HI, USA</p>
+        <div class="pub-links">
+          <a href="https://doi.org/10.1145/3613904.3642050" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2023</div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-award">🏆 Honorable mention</span>
+      <div class="pub-body">
+        <p class="pub-title">Goals for Goal Setting: A Scoping Review on Personal Informatics</p>
+        <p class="pub-authors">Ekhtiar, T., <strong>Karahanoğlu, A.</strong>, Gouveia, R. & Ludden, G.</p>
+        <p class="pub-venue">ACM Designing Interactive Systems Conference (DIS '23), Pittsburgh, PA, USA</p>
+        <div class="pub-links">
+          <a href="http://armagank.com/wp-content/uploads/2023/06/2023_Goals-for-Goal-Setting.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="https://doi.org/10.1145/3563657.3596087" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-conf">CHI PLAY 2023</span>
+      <div class="pub-body">
+        <p class="pub-title">The Cost of Reward: A Critical Reflection on the 'What', 'How', and 'Why' of Gamification for Motivation in Sports</p>
+        <p class="pub-authors">Postma, D., <strong>Karahanoğlu, A.</strong>, van Delden, R. & Reidsma, D.</p>
+        <p class="pub-venue">CHI PLAY Companion '23, Stratford, ON, Canada</p>
+        <div class="pub-links">
+          <a href="http://armagank.com/wp-content/uploads/2024/02/2023_The-Cost-of-Reward.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="https://doi.org/10.1145/3573382.3616102" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="year-group">
+    <div class="year-label">2022</div>
+
+    <div class="pub-row">
+      <span class="pub-badge pub-badge-journal">Journal · IJHCI</span>
+      <div class="pub-body">
+        <p class="pub-title">Data Sensemaking in Self-Tracking: Towards a New Generation of Self-Tracking Tools</p>
+        <p class="pub-authors">Coskun, A. & <strong>Karahanoğlu, A.</strong></p>
+        <p class="pub-venue">International Journal of Human–Computer Interaction, 39:12, 2339–2360, 2022</p>
+        <div class="pub-links">
+          <a href="http://armagank.com/wp-content/uploads/2023/06/2022_IJHCI_Data-Sensemaking-in-Self-Tracking.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="https://doi.org/10.1080/10447318.2022.2075637" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scholar-cta">
+    <p>For earlier publications and a complete overview, visit my Google Scholar profile.</p>
+    <a href="https://scholar.google.com/citations?hl=en&user=ATBkBAwAAAAJ" class="btn-ghost" target="_blank" rel="noopener">Google Scholar →</a>
+  </div>
+
+</main>
+
+<section class="contact-strip">
+  <div class="contact-left">Interested in this work?<br><span>Feel free to reach out for papers, collaborations or questions.</span></div>
+  <div class="contact-right">
+    <a href="mailto:a.karahanoglu@utwente.nl" class="contact-email">a.karahanoglu@utwente.nl</a>
+    <div class="contact-links">
+      <a href="https://scholar.google.com/citations?hl=en&user=ATBkBAwAAAAJ" class="contact-link" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://www.linkedin.com/in/armağan-karahanoğlu-916b397/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-l">© 2025 Armağan Karahanoğlu</div>
+  <div class="footer-r">University of Twente · Faculty ET · DPM · Enschede, NL</div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research — Armağan Karahanoğlu</title>
+  <meta name="description" content="Research by Armağan Karahanoğlu on personal health technologies, data sensemaking, self-tracking, sports HCI, and human-centred design at the University of Twente.">
+  <meta name="author" content="Armağan Karahanoğlu">
+  <meta name="robots" content="index, follow">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Research — Armağan Karahanoğlu","description":"Research focus and projects by Armağan Karahanoğlu","url":"https://armagank.com/research.html"}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --bg:#f2f0eb;--bg-2:#e8e5de;--bg-3:#ebe8e1;--bg-4:#e2dfd8;--teal:#21bda1;--teal-d:#0f6e56;--blue:#21759b;--ink:#0f0f0f;--muted:rgba(15,15,15,0.55);--subtle:rgba(15,15,15,0.38);--border:rgba(15,15,15,0.1); }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
+    a { color: inherit; }
+    nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: var(--bg); border-bottom: 0.5px solid var(--border); }
+    .nav-logo img { height: 26px; }
+    .nav-links { display: flex; list-style: none; }
+    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--subtle); text-decoration: none; padding: 5px 14px; transition: color 0.15s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--ink); }
+    .nav-tag { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.04em; }
+
+    .page-header { background: var(--bg-2); padding: 64px 52px 52px; border-bottom: 0.5px solid var(--border); }
+    .page-header-eyebrow { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+    .page-header h1 { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
+    .page-header p { font-size: 15px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 620px; }
+
+    .content { max-width: 900px; margin: 0 auto; padding: 56px 52px; }
+    .section { margin-bottom: 56px; }
+    .block-label { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--subtle); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .block-label::before { content: ''; width: 18px; height: 0.5px; background: rgba(15,15,15,0.2); flex-shrink: 0; }
+
+    h2 { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: -0.015em; margin-bottom: 12px; }
+    p { font-size: 14px; font-weight: 300; line-height: 1.8; color: var(--muted); margin-bottom: 12px; }
+    p strong { color: var(--ink); font-weight: 500; }
+    ul { list-style: none; margin: 0; padding: 0; }
+    ul li { font-size: 14px; font-weight: 300; line-height: 1.7; color: var(--muted); padding: 6px 0; border-bottom: 0.5px solid var(--border); }
+    ul li:last-child { border-bottom: none; }
+    ul li strong { color: var(--ink); font-weight: 500; }
+    a.text-link { color: var(--blue); text-decoration: none; }
+    a.text-link:hover { text-decoration: underline; }
+
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: rgba(15,15,15,0.07); margin-top: 8px; }
+    .project-card { background: var(--bg); padding: 28px 28px; }
+    .project-card h3 { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 10px; line-height: 1.3; }
+    .project-card p { font-size: 13px; }
+    .project-tag { display: inline-block; font-family: 'Syne Mono', monospace; font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 2px 8px; background: rgba(33,189,161,0.1); color: var(--teal-d); border-radius: 2px; margin-bottom: 10px; }
+
+    .exp-item { padding: 14px 0; border-bottom: 0.5px solid var(--border); }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-period { font-family: 'Syne Mono', monospace; font-size: 9px; color: var(--teal); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .exp-title { font-size: 14px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+    .exp-org { font-size: 13px; font-weight: 300; color: var(--muted); }
+
+    .contact-strip { background: var(--blue); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .contact-left { font-size: 20px; font-weight: 500; color: #f2f0eb; line-height: 1.35; }
+    .contact-left span { color: rgba(242,240,235,0.5); font-weight: 300; }
+    .contact-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; }
+    .contact-email { font-family: 'Syne Mono', monospace; font-size: 13px; color: #f2f0eb; text-decoration: none; }
+    .contact-links { display: flex; gap: 16px; }
+    .contact-link { font-family: 'Syne Mono', monospace; font-size: 9px; color: rgba(242,240,235,0.5); letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
+    .contact-link:hover { color: #f2f0eb; }
+    footer { background: var(--bg-2); border-top: 0.5px solid var(--border); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-l, .footer-r { font-family: 'Syne Mono', monospace; font-size: 9px; color: rgba(15,15,15,0.3); letter-spacing: 0.06em; }
+
+    @media (max-width: 900px) {
+      nav { padding: 14px 20px; } .nav-links { display: none; }
+      .page-header, .content { padding-left: 20px; padding-right: 20px; }
+      .project-grid { grid-template-columns: 1fr; }
+      .contact-strip { flex-direction: column; align-items: flex-start; padding: 28px 20px; }
+      .contact-right { align-items: flex-start; }
+      footer { padding: 14px 20px; flex-direction: column; gap: 4px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <img src="https://armagank.com/wp-content/uploads/2020/10/logo_54.png" alt="Armağan Karahanoğlu"
+      onerror="this.outerHTML='<span style=\'font-family:Syne,sans-serif;font-size:14px;font-weight:700;color:#0f0f0f\'>Armağan K.</span>'">
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="publications.html">Publications</a></li>
+    <li><a href="supervision.html">Supervision</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <div class="nav-tag">UT · Enschede · NL</div>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-eyebrow">Research</div>
+  <h1>Experience design of personal<br>health technologies</h1>
+  <p>I work on discovering ways to better understand people's experiences with digital health data — and developing tools and research to make those developments more tangible and long-lasting.</p>
+</header>
+
+<main class="content">
+
+  <section class="section">
+    <div class="block-label">Research focus</div>
+    <p>We live in a data-driven world, which triggers the way research in health technology is carried out. Digital health technologies become increasingly data-driven, often neglecting how people actually <em>experience</em> their health data. As an expert in experience design, I work on discovering ways to better understand <strong>people's experiences with digital health data</strong>.</p>
+    <p>Currently, I am interested in the roles of interaction design in health and wellbeing, especially in <strong>self-tracking of physical activity and sports</strong>. My work combines physiology and psychology with interaction design in understanding and designing meaningful data interactions for engagement in physical activity and sports.</p>
+    <p>Key research questions I pursue:</p>
+    <ul>
+      <li><strong>What are the current user practices</strong> of meaningful data interactions in personal health technologies?</li>
+      <li><strong>How can we transform this knowledge</strong> to novel personal health technologies?</li>
+      <li><strong>What should be the role of designers</strong> in this transformation?</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="block-label">Research projects</div>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-tag">Ongoing · NWO funded</div>
+        <h3>Trust in Human-Technology Shared Health Decision-Making</h3>
+        <p>Understanding the extent and limits of human trust in human-technology partnerships during shared health decision-making.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-tag">Ongoing</div>
+        <h3>Freehabilitation Project</h3>
+        <p>Selected for the 4TU Dutch Design Week 2025 Expo. Published in Disability and Rehabilitation: Assistive Technology Journal.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-tag">2018–2020 · EU-RISE funded</div>
+        <h3>Designing for People with Dementia</h3>
+        <p>Helping people with dementia engage in social contexts to improve psychosocial wellbeing through interaction design.</p>
+      </div>
+      <div class="project-card">
+        <div class="project-tag">2015–2019 · TUBITAK funded</div>
+        <h3>Outdoor Exercise Park Equipment</h3>
+        <p>Exploring usage patterns of outdoor exercise park equipment and designing new software platforms for engagement.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="block-label">Collaborations</div>
+    <ul>
+      <li><strong>EatMyRide</strong> — User experience research of food nutrition planning for cyclists, based on fitness levels and abilities.</li>
+      <li><strong>SciRobot (2015)</strong> — Design and user experience of a companion robot for dementia patients.</li>
+      <li><strong>Arçelik Inc. (2008–2014)</strong> — User experience and perceptions of consumer goods (dishwashers, washing machines, TV).</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="block-label">Research experience</div>
+    <div class="exp-item">
+      <div class="exp-period">2026 — present</div>
+      <div class="exp-title">Associate Professor</div>
+      <div class="exp-org">University of Twente, the Netherlands</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2017 — 2026</div>
+      <div class="exp-title">Assistant Professor & Researcher</div>
+      <div class="exp-org">University of Twente, the Netherlands</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2014 — 2017</div>
+      <div class="exp-title">Assistant Professor & Design Researcher</div>
+      <div class="exp-org">TOBB-ETU, Turkey</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2011 — 2012</div>
+      <div class="exp-title">Fulbright PhD Researcher</div>
+      <div class="exp-org">Carnegie Mellon University, Human-Computer Interaction Institute, USA</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2008 — 2014</div>
+      <div class="exp-title">Design Researcher</div>
+      <div class="exp-org">Product Usability Unit (U-TEST), Turkey</div>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">2006 — 2013</div>
+      <div class="exp-title">Research Assistant</div>
+      <div class="exp-org">Middle East Technical University, Dept. of Industrial Design, Turkey</div>
+    </div>
+  </section>
+
+</main>
+
+<section class="contact-strip">
+  <div class="contact-left">Interested in collaborating?<br><span>Reach out — I am always open to new research partnerships.</span></div>
+  <div class="contact-right">
+    <a href="mailto:a.karahanoglu@utwente.nl" class="contact-email">a.karahanoglu@utwente.nl</a>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/armağan-karahanoğlu-916b397/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com/citations?hl=en&user=ATBkBAwAAAAJ" class="contact-link" target="_blank" rel="noopener">Scholar</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-l">© 2025 Armağan Karahanoğlu</div>
+  <div class="footer-r">University of Twente · Faculty ET · DPM · Enschede, NL</div>
+</footer>
+
+</body>
+</html>
