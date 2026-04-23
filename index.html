@@ -67,59 +67,50 @@
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
     .nav-tag { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.04em; }
 
-    /* HERO — full bleed photo with gradient overlay */
+    /* HERO */
     .hero {
-      position: relative;
-      min-height: 540px;
-      display: flex;
-      align-items: flex-end;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 520px;
       overflow: hidden;
     }
 
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .hero-bg img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: 72% top;
-      display: block;
-    }
-
-    /* gradient: solid beige left → transparent right */
-    .hero-bg::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        #f2f0eb 0%,
-        #f2f0eb 30%,
-        rgba(242,240,235,0.88) 50%,
-        rgba(242,240,235,0.3) 70%,
-        rgba(242,240,235,0.0) 100%
-      );
-    }
+    .hero-bg { display: none; }
 
     .hero-left {
-      position: relative;
-      z-index: 1;
+      background: var(--bg-2);
       padding: 80px 52px 72px;
-      max-width: 580px;
-      display: flex; flex-direction: column; justify-content: flex-end;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+      z-index: 1;
+    }
+
+    /* subtiele langzaam bewegende kleurgloed */
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: -40px;
+      background: radial-gradient(ellipse 60% 60% at 80% 40%, rgba(33,189,161,0.07) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 50% at 20% 70%, rgba(33,117,155,0.05) 0%, transparent 70%);
+      animation: heroShift 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    @keyframes heroShift {
+      0%   { transform: translate(0, 0) scale(1); }
+      50%  { transform: translate(20px, -15px) scale(1.05); }
+      100% { transform: translate(-10px, 10px) scale(1.02); }
     }
 
     .hero-number {
       font-family: 'Syne Mono', monospace; font-size: 120px;
-      color: rgba(15,15,15,0.05); position: absolute; top: 20px; left: 32px;
-      line-height: 1; user-select: none; pointer-events: none; z-index: 1;
+      color: rgba(15,15,15,0.05); position: absolute; top: 16px; left: 32px;
+      line-height: 1; user-select: none; pointer-events: none;
     }
 
     .hero-eyebrow {
-      font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal);
+      font-family: 'Syne Mono', monospace; font-size: 11px; color: var(--teal);
       letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px;
     }
 
@@ -130,30 +121,96 @@
     }
 
     .hero-desc {
-      font-size: 15.5px; font-weight: 400; color: var(--muted);
-      line-height: 1.75; max-width: 360px; margin-bottom: 32px;
+      font-size: 16px; font-weight: 400; color: rgba(15,15,15,0.75);
+      line-height: 1.75; max-width: 380px; margin-bottom: 36px;
     }
 
     .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .badge {
-      font-size: 10px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
-      padding: 4px 12px; border: 0.5px solid rgba(15,15,15,0.2); color: var(--subtle);
-      border-radius: 2px; background: rgba(242,240,235,0.6);
+      font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
+      padding: 5px 13px; border: 0.5px solid rgba(15,15,15,0.2); color: rgba(15,15,15,0.55);
+      border-radius: 2px;
     }
-    .badge-teal { border-color: var(--teal); color: var(--teal-d); background: rgba(33,189,161,0.06); }
+    .badge-teal { border-color: var(--teal); color: var(--teal-d); }
+
+    /* FOTO — liggende foto, crop naar rechts */
+    .hero-photo {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-2);
+    }
+
+    .hero-photo img {
+      position: absolute;
+      top: 0; right: 0;
+      height: 100%;
+      width: auto;
+      max-width: none;
+    }
+
+    .hero-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, var(--bg-2) 0%, transparent 15%);
+      pointer-events: none;
+    }
 
     .hero-right-label {
       position: absolute; bottom: 24px; right: 24px; z-index: 2;
-      font-family: 'Syne Mono', monospace; font-size: 9px;
-      color: rgba(15,15,15,0.6); letter-spacing: 0.08em; text-align: right; line-height: 1.7;
+      font-family: 'Syne Mono', monospace; font-size: 10px;
+      color: rgba(15,15,15,0.45); letter-spacing: 0.08em; text-align: right; line-height: 1.7;
     }
 
-    /* TICKER */
-    .ticker-wrap { background: var(--teal); padding: 9px 0; overflow: hidden; white-space: nowrap; }
-    .ticker-inner { display: inline-flex; animation: tick 32s linear infinite; }
-    @keyframes tick { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .ticker-item { font-family: 'Syne Mono', monospace; font-size: 10px; color: rgba(0,0,0,0.5); letter-spacing: 0.05em; padding: 0 36px; }
+    /* NEWS BAND — statisch met subtiele pulse animatie */
+    .ticker-wrap {
+      background: var(--teal);
+      padding: 12px 48px;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    .ticker-inner {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      flex-wrap: nowrap;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .ticker-item {
+      font-family: 'Syne Mono', monospace;
+      font-size: 10px;
+      color: rgba(0,0,0,0.6);
+      letter-spacing: 0.05em;
+      padding: 0 12px;
+      white-space: nowrap;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .ticker-item:nth-child(1) { animation-delay: 0.1s; }
+    .ticker-item:nth-child(2) { animation-delay: 0.25s; }
+    .ticker-item:nth-child(3) { animation-delay: 0.4s; }
+    .ticker-item:nth-child(4) { animation-delay: 0.55s; }
+    .ticker-item:nth-child(5) { animation-delay: 0.7s; }
+    .ticker-item:nth-child(6) { animation-delay: 0.85s; }
+
+    .ticker-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.25);
+      flex-shrink: 0;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
 
     /* BODY GRID */
     .body-grid { display: grid; grid-template-columns: 2fr 1fr; }
@@ -226,7 +283,7 @@
     @media (max-width: 900px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero { grid-template-columns: 1fr; }
       .hero-left { clip-path: none; padding: 48px 20px 40px; }
       .hero-photo { height: 320px; }
       .hero-name { font-size: 32px; }
@@ -283,19 +340,18 @@
   </div>
 </section>
 
-<div class="ticker-wrap" aria-hidden="true">
+<div class="ticker-wrap">
   <div class="ticker-inner">
     <span class="ticker-item">CHI 2025 Yokohama — 2 papers</span>
+    <div class="ticker-dot"></div>
     <span class="ticker-item">DIS 2026 Workshop organiser</span>
+    <div class="ticker-dot"></div>
     <span class="ticker-item">Board member CHI Nederland</span>
+    <div class="ticker-dot"></div>
     <span class="ticker-item">4TU Dutch Design Week 2025</span>
+    <div class="ticker-dot"></div>
     <span class="ticker-item">Freehabilitation Project</span>
-    <span class="ticker-item">Track coordinator HTR master's UT</span>
-    <span class="ticker-item">CHI 2025 Yokohama — 2 papers</span>
-    <span class="ticker-item">DIS 2026 Workshop organiser</span>
-    <span class="ticker-item">Board member CHI Nederland</span>
-    <span class="ticker-item">4TU Dutch Design Week 2025</span>
-    <span class="ticker-item">Freehabilitation Project</span>
+    <div class="ticker-dot"></div>
     <span class="ticker-item">Track coordinator HTR master's UT</span>
   </div>
 </div>
