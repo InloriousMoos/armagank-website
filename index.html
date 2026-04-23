@@ -70,19 +70,21 @@
     /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      min-height: 520px;
+      grid-template-columns: 55% 45%;
+      min-height: 500px;
       overflow: hidden;
+      background: var(--bg-2);
     }
 
     .hero-bg { display: none; }
 
     .hero-left {
       background: var(--bg-2);
-      padding: 80px 52px 72px;
-      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 52px 72px 52px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       position: relative;
-      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
       z-index: 1;
     }
 
@@ -91,8 +93,9 @@
       content: '';
       position: absolute;
       inset: -40px;
-      background: radial-gradient(ellipse 60% 60% at 80% 40%, rgba(33,189,161,0.07) 0%, transparent 70%),
-                  radial-gradient(ellipse 50% 50% at 20% 70%, rgba(33,117,155,0.05) 0%, transparent 70%);
+      background:
+        radial-gradient(ellipse 60% 60% at 80% 40%, rgba(33,189,161,0.07) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 50% at 20% 70%, rgba(33,117,155,0.05) 0%, transparent 70%);
       animation: heroShift 12s ease-in-out infinite alternate;
       pointer-events: none;
     }
@@ -104,37 +107,67 @@
     }
 
     .hero-number {
-      font-family: 'Syne Mono', monospace; font-size: 120px;
-      color: rgba(15,15,15,0.05); position: absolute; top: 16px; left: 32px;
-      line-height: 1; user-select: none; pointer-events: none;
+      font-family: 'Syne Mono', monospace;
+      font-size: 120px;
+      color: rgba(15,15,15,0.05);
+      position: absolute;
+      top: 16px; left: 32px;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
     }
 
     .hero-eyebrow {
-      font-family: 'Syne Mono', monospace; font-size: 11px; color: var(--teal);
-      letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 18px;
+      font-family: 'Syne Mono', monospace;
+      font-size: 11px;
+      color: var(--teal);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      position: relative; z-index: 1;
     }
 
     .hero-name {
       font-family: 'DM Sans', sans-serif;
-      font-size: 46px; font-weight: 600; color: var(--ink);
-      line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 22px;
+      font-size: 46px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 22px;
+      position: relative; z-index: 1;
     }
 
     .hero-desc {
-      font-size: 16px; font-weight: 400; color: rgba(15,15,15,0.75);
-      line-height: 1.75; max-width: 380px; margin-bottom: 36px;
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(15,15,15,0.75);
+      line-height: 1.75;
+      max-width: 440px;
+      margin-bottom: 36px;
+      position: relative; z-index: 1;
     }
 
-    .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .hero-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      position: relative; z-index: 1;
+    }
 
     .badge {
-      font-size: 11px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
-      padding: 5px 13px; border: 0.5px solid rgba(15,15,15,0.2); color: rgba(15,15,15,0.55);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 5px 13px;
+      border: 0.5px solid rgba(15,15,15,0.2);
+      color: rgba(15,15,15,0.55);
       border-radius: 2px;
     }
     .badge-teal { border-color: var(--teal); color: var(--teal-d); }
 
-    /* FOTO — liggende foto, crop naar rechts */
+    /* FOTO — rechterkolom, liggende foto uitgelijnd op het gezicht */
     .hero-photo {
       position: relative;
       overflow: hidden;
@@ -143,24 +176,33 @@
 
     .hero-photo img {
       position: absolute;
-      top: 0; right: 0;
+      top: 0;
+      /* centreer op gezicht: liggende foto is ~1500px breed, gezicht zit rechts */
+      right: -5%;
       height: 100%;
       width: auto;
       max-width: none;
     }
 
+    /* zachte overgang links zodat het in de beige achtergrond vloeit */
     .hero-photo::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to right, var(--bg-2) 0%, transparent 15%);
+      background: linear-gradient(to right, var(--bg-2) 0%, transparent 20%);
       pointer-events: none;
     }
 
     .hero-right-label {
-      position: absolute; bottom: 24px; right: 24px; z-index: 2;
-      font-family: 'Syne Mono', monospace; font-size: 10px;
-      color: rgba(15,15,15,0.45); letter-spacing: 0.08em; text-align: right; line-height: 1.7;
+      position: absolute;
+      bottom: 20px; right: 20px;
+      z-index: 2;
+      font-family: 'Syne Mono', monospace;
+      font-size: 10px;
+      color: rgba(15,15,15,0.4);
+      letter-spacing: 0.08em;
+      text-align: right;
+      line-height: 1.7;
     }
 
     /* NEWS BAND — statisch met subtiele pulse animatie */
@@ -284,7 +326,7 @@
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
       .hero { grid-template-columns: 1fr; }
-      .hero-left { clip-path: none; padding: 48px 20px 40px; }
+      .hero-left { padding: 48px 20px 40px; }
       .hero-photo { height: 320px; }
       .hero-name { font-size: 32px; }
       .body-grid { grid-template-columns: 1fr; }
@@ -331,7 +373,7 @@
   </div>
   <div class="hero-photo">
     <img src="assets/photo.jpg" alt="Armağan Karahanoğlu — Associate Professor of Interaction Design, University of Twente"
-      onerror="this.style.background='#dedad3';this.style.width='100%';this.style.height='100%';this.removeAttribute('src');">
+      onerror="this.style.background='#dedad3';this.removeAttribute('src');">
     <div class="hero-right-label">
       Associate Professor<br>
       Interaction Design<br>
