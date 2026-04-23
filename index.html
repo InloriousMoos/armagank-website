@@ -67,21 +67,55 @@
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
     .nav-tag { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.04em; }
 
-    /* HERO */
-    .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 520px; }
+    /* HERO — full bleed photo with gradient overlay */
+    .hero {
+      position: relative;
+      min-height: 540px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: 72% top;
+      display: block;
+    }
+
+    /* gradient: solid beige left → transparent right */
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        #f2f0eb 0%,
+        #f2f0eb 30%,
+        rgba(242,240,235,0.88) 50%,
+        rgba(242,240,235,0.3) 70%,
+        rgba(242,240,235,0.0) 100%
+      );
+    }
 
     .hero-left {
-      background: var(--bg-2);
-      padding: 72px 52px 64px;
-      display: flex; flex-direction: column; justify-content: flex-end;
       position: relative;
-      clip-path: polygon(0 0, 100% 0, 88% 100%, 0 100%);
+      z-index: 1;
+      padding: 80px 52px 72px;
+      max-width: 580px;
+      display: flex; flex-direction: column; justify-content: flex-end;
     }
 
     .hero-number {
       font-family: 'Syne Mono', monospace; font-size: 120px;
-      color: rgba(15,15,15,0.04); position: absolute; top: 20px; left: 32px;
-      line-height: 1; user-select: none; pointer-events: none;
+      color: rgba(15,15,15,0.05); position: absolute; top: 20px; left: 32px;
+      line-height: 1; user-select: none; pointer-events: none; z-index: 1;
     }
 
     .hero-eyebrow {
@@ -90,41 +124,29 @@
     }
 
     .hero-name {
-      font-family: 'Syne', sans-serif;
-      font-size: 44px; font-weight: 800; color: var(--ink);
-      line-height: 1.0; letter-spacing: -0.025em; margin-bottom: 22px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 46px; font-weight: 600; color: var(--ink);
+      line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 22px;
     }
 
     .hero-desc {
       font-size: 15px; font-weight: 300; color: var(--muted);
-      line-height: 1.7; max-width: 380px; margin-bottom: 32px;
+      line-height: 1.75; max-width: 360px; margin-bottom: 32px;
     }
 
     .hero-badges { display: flex; gap: 8px; flex-wrap: wrap; }
 
     .badge {
       font-size: 10px; font-weight: 500; letter-spacing: 0.04em; text-transform: uppercase;
-      padding: 4px 12px; border: 0.5px solid rgba(15,15,15,0.18); color: var(--subtle); border-radius: 2px;
+      padding: 4px 12px; border: 0.5px solid rgba(15,15,15,0.2); color: var(--subtle);
+      border-radius: 2px; background: rgba(242,240,235,0.6);
     }
-    .badge-teal { border-color: var(--teal); color: var(--teal-d); }
-
-    /* HERO PHOTO — full bleed, properly cropped */
-    .hero-right {
-      position: relative; overflow: hidden;
-      background: var(--bg-2);
-    }
-
-    .hero-right img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: 65% top;
-      filter: contrast(1.02) brightness(1.01);
-    }
+    .badge-teal { border-color: var(--teal); color: var(--teal-d); background: rgba(33,189,161,0.06); }
 
     .hero-right-label {
-      position: absolute; bottom: 24px; right: 24px;
+      position: absolute; bottom: 24px; right: 24px; z-index: 2;
       font-family: 'Syne Mono', monospace; font-size: 9px;
-      color: rgba(0,0,0,0.3); letter-spacing: 0.08em; text-align: right; line-height: 1.7;
+      color: rgba(15,15,15,0.35); letter-spacing: 0.08em; text-align: right; line-height: 1.7;
     }
 
     /* TICKER */
@@ -204,10 +226,10 @@
     @media (max-width: 900px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { clip-path: none; padding: 48px 20px 40px; }
-      .hero-right { height: 360px; }
+      .hero { min-height: 420px; }
+      .hero-left { padding: 48px 20px 40px; max-width: 100%; }
       .hero-name { font-size: 32px; }
+      .hero-bg::after { background: linear-gradient(to right, #f2f0eb 0%, #f2f0eb 20%, rgba(242,240,235,0.85) 60%, rgba(242,240,235,0.3) 100%); }
       .body-grid { grid-template-columns: 1fr; }
       .research-block { padding: 40px 20px; border-right: none; border-bottom: 0.5px solid var(--border); }
       .news-block { padding: 40px 20px; }
@@ -238,6 +260,10 @@
 </nav>
 
 <section class="hero">
+  <div class="hero-bg">
+    <img src="assets/photo.jpg" alt="Armağan Karahanoğlu — Associate Professor of Interaction Design, University of Twente"
+      onerror="this.style.background='#e8e5de';this.removeAttribute('src');">
+  </div>
   <div class="hero-left">
     <div class="hero-number">01</div>
     <div class="hero-eyebrow">Design researcher</div>
@@ -250,14 +276,10 @@
       <span class="badge">Self-tracking</span>
     </div>
   </div>
-  <div class="hero-right">
-    <img src="assets/photo.jpg" alt="Armağan Karahanoğlu — Associate Professor of Interaction Design, University of Twente"
-      onerror="this.style.background='#dedad3';this.removeAttribute('src');">
-    <div class="hero-right-label">
-      Associate Professor<br>
-      Interaction Design<br>
-      University of Twente
-    </div>
+  <div class="hero-right-label">
+    Associate Professor<br>
+    Interaction Design<br>
+    University of Twente
   </div>
 </section>
 
