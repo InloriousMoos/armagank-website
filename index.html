@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Armağan Karahanoğlu — Design Researcher</title>
+  <meta name="description" content="Associate Professor of Interaction Design at the University of Twente. Research in human-centred experience design of personal health technologies.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f2f0eb;
+      --bg-2:     #e8e5de;
+      --bg-3:     #ebe8e1;
+      --bg-4:     #e2dfd8;
+      --bg-5:     #d8d5ce;
+      --teal:     #21bda1;
+      --teal-d:   #0f6e56;
+      --blue:     #21759b;
+      --ink:      #0f0f0f;
+      --muted:    rgba(15,15,15,0.5);
+      --subtle:   rgba(15,15,15,0.35);
+      --border:   rgba(15,15,15,0.1);
+      --border-2: rgba(15,15,15,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Syne', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: var(--bg);
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-logo img {
+      height: 28px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      text-decoration: none;
+      padding: 6px 16px;
+      transition: color 0.15s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--ink); }
+
+    .nav-tag {
+      font-family: 'Syne Mono', monospace;
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 480px;
+    }
+
+    .hero-left {
+      background: var(--bg-2);
+      padding: 64px 48px 64px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+    }
+
+    .hero-number {
+      font-family: 'Syne Mono', monospace;
+      font-size: 130px;
+      color: rgba(15,15,15,0.045);
+      position: absolute;
+      top: 20px;
+      left: 32px;
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Syne Mono', monospace;
+      font-size: 10px;
+      color: var(--teal);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-name {
+      font-size: 48px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 0.95;
+      letter-spacing: -0.03em;
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-desc {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      line-height: 1.65;
+      max-width: 360px;
+      margin-bottom: 36px;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      border: 0.5px solid rgba(15,15,15,0.18);
+      color: var(--subtle);
+      border-radius: 1px;
+    }
+
+    .badge-teal {
+      border-color: var(--teal);
+      color: var(--teal-d);
+    }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--bg-2);
+    }
+
+    .hero-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .hero-right-label {
+      position: absolute;
+      bottom: 28px;
+      right: 28px;
+      font-family: 'Syne Mono', monospace;
+      font-size: 9px;
+      color: rgba(0,0,0,0.35);
+      letter-spacing: 0.08em;
+      text-align: right;
+      line-height: 1.7;
+    }
+
+    /* ── TICKER ── */
+    .ticker-wrap {
+      background: var(--teal);
+      padding: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .ticker-inner {
+      display: inline-flex;
+      animation: tick 32s linear infinite;
+    }
+
+    @keyframes tick {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .ticker-item {
+      font-family: 'Syne Mono', monospace;
+      font-size: 10px;
+      color: rgba(0,0,0,0.5);
+      letter-spacing: 0.05em;
+      padding: 0 40px;
+    }
+
+    /* ── BODY GRID ── */
+    .body-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+    }
+
+    /* ── RESEARCH ── */
+    .research-block {
+      padding: 56px 48px;
+      border-right: 0.5px solid var(--border);
+    }
+
+    .block-label {
+      font-family: 'Syne Mono', monospace;
+      font-size: 10px;
+      color: var(--subtle);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .block-label::before {
+      content: '';
+      width: 20px;
+      height: 0.5px;
+      background: rgba(15,15,15,0.2);
+      flex-shrink: 0;
+    }
+
+    .research-heading {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      margin-bottom: 24px;
+    }
+
+    .research-heading em {
+      font-style: normal;
+      color: var(--blue);
+    }
+
+    .research-body {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .research-body strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    .tag-grid {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      background: rgba(15,15,15,0.06);
+      color: var(--subtle);
+      border-radius: 1px;
+    }
+
+    /* ── NEWS ── */
+    .news-block {
+      padding: 56px 40px;
+      background: var(--bg-3);
+    }
+
+    .news-item {
+      padding: 16px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .news-item:last-child { border-bottom: none; }
+
+    .news-meta {
+      font-family: 'Syne Mono', monospace;
+      font-size: 9px;
+      color: var(--teal);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .news-text {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--muted);
+    }
+
+    .news-text strong { color: var(--ink); font-weight: 600; }
+
+    .news-link {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+    .news-link:hover { text-decoration: underline; }
+
+    /* ── PUBLICATIONS ── */
+    .pubs-block {
+      background: var(--bg-4);
+      padding: 56px 48px;
+      grid-column: 1 / -1;
+    }
+
+    .pubs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border-2);
+      margin-top: 8px;
+    }
+
+    .pub-card {
+      background: var(--bg-4);
+      padding: 28px 32px;
+      transition: background 0.2s;
+    }
+
+    .pub-card:hover { background: var(--bg-5); }
+
+    .pub-badge {
+      display: inline-block;
+      font-family: 'Syne Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      margin-bottom: 14px;
+      border-radius: 1px;
+    }
+
+    .pub-badge-award   { background: rgba(186,117,23,0.12); color: #854f0b; }
+    .pub-badge-open    { background: rgba(33,189,161,0.12);  color: #0f6e56; }
+    .pub-badge-journal { background: rgba(33,117,155,0.12);  color: #21759b; }
+
+    .pub-title {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      margin-bottom: 10px;
+    }
+
+    .pub-meta {
+      font-size: 11.5px;
+      color: rgba(15,15,15,0.4);
+      line-height: 1.5;
+      margin-bottom: 12px;
+    }
+
+    .pub-link {
+      font-family: 'Syne Mono', monospace;
+      font-size: 9px;
+      color: var(--teal);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pub-link:hover { text-decoration: underline; }
+
+    .pubs-more {
+      margin-top: 32px;
+      text-align: right;
+    }
+
+    .btn-ghost {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      background: none;
+      border: 0.5px solid rgba(15,15,15,0.2);
+      padding: 10px 24px;
+      cursor: pointer;
+      border-radius: 1px;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.15s;
+    }
+
+    .btn-ghost:hover {
+      color: var(--ink);
+      border-color: rgba(15,15,15,0.5);
+    }
+
+    /* ── CONTACT ── */
+    .contact-strip {
+      background: var(--blue);
+      padding: 40px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+    }
+
+    .contact-left {
+      font-size: 22px;
+      font-weight: 700;
+      color: #f2f0eb;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+    }
+
+    .contact-left span {
+      color: rgba(242,240,235,0.45);
+      font-weight: 400;
+    }
+
+    .contact-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .contact-email {
+      font-family: 'Syne Mono', monospace;
+      font-size: 13px;
+      color: #f2f0eb;
+      text-decoration: none;
+    }
+
+    .contact-email:hover { text-decoration: underline; }
+
+    .contact-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .contact-link {
+      font-family: 'Syne Mono', monospace;
+      font-size: 9px;
+      color: rgba(242,240,235,0.5);
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+
+    .contact-link:hover { color: #f2f0eb; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-2);
+      border-top: 0.5px solid var(--border);
+      padding: 20px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-l, .footer-r {
+      font-family: 'Syne Mono', monospace;
+      font-size: 9px;
+      color: rgba(15,15,15,0.3);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 16px 24px; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { clip-path: none; padding: 48px 24px; }
+      .hero-right { height: 300px; }
+      .hero-name { font-size: 36px; }
+      .body-grid { grid-template-columns: 1fr; }
+      .research-block { padding: 40px 24px; border-right: none; border-bottom: 0.5px solid var(--border); }
+      .news-block { padding: 40px 24px; }
+      .pubs-block { padding: 40px 24px; }
+      .pubs-grid { grid-template-columns: 1fr; }
+      .contact-strip { flex-direction: column; align-items: flex-start; padding: 32px 24px; }
+      .contact-right { align-items: flex-start; }
+      footer { padding: 16px 24px; flex-direction: column; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <img src="https://armagank.com/wp-content/uploads/2020/10/logo_54.png" alt="Armağan Karahanoğlu"
+      onerror="this.style.display='none'">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Home</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="supervision.html">Supervision</a></li>
+    <li><a href="teaching.html">Teaching</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-tag">UT · Enschede · NL</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-number">01</div>
+    <div class="hero-eyebrow">Design researcher</div>
+    <h1 class="hero-name">Armağan<br>Karahanoğlu</h1>
+    <p class="hero-desc">Human-centred experience design of personal health technologies — where physiology, psychology, and interaction design meet.</p>
+    <div class="hero-badges">
+      <span class="badge badge-teal">Personal health tech</span>
+      <span class="badge">Data sensemaking</span>
+      <span class="badge">Sports HCI</span>
+      <span class="badge">Self-tracking</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <!-- Replace src with: assets/photo.jpg -->
+    <img src="assets/photo.jpg" alt="Armağan Karahanoğlu"
+      onerror="this.style.background='#dedad3'; this.removeAttribute('src');">
+    <div class="hero-right-label">
+      Associate Professor<br>
+      Interaction Design<br>
+      University of Twente
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap" aria-hidden="true">
+  <div class="ticker-inner">
+    <span class="ticker-item">CHI 2025 Yokohama — 2 papers</span>
+    <span class="ticker-item">DIS 2026 Workshop organiser</span>
+    <span class="ticker-item">Board member CHI Nederland</span>
+    <span class="ticker-item">4TU Dutch Design Week 2025</span>
+    <span class="ticker-item">Freehabilitation Project</span>
+    <span class="ticker-item">Track coordinator HTR master's UT</span>
+    <span class="ticker-item">CHI 2025 Yokohama — 2 papers</span>
+    <span class="ticker-item">DIS 2026 Workshop organiser</span>
+    <span class="ticker-item">Board member CHI Nederland</span>
+    <span class="ticker-item">4TU Dutch Design Week 2025</span>
+    <span class="ticker-item">Freehabilitation Project</span>
+    <span class="ticker-item">Track coordinator HTR master's UT</span>
+  </div>
+</div>
+
+<!-- BODY GRID -->
+<div class="body-grid">
+
+  <!-- RESEARCH -->
+  <section id="research" class="research-block">
+    <div class="block-label">Research focus</div>
+    <h2 class="research-heading">Experience design of<br><em>personal health</em><br>technologies</h2>
+    <p class="research-body">I investigate how interaction design can create socially and personally acceptable self-tracking technologies. Currently my focus is on <strong>data sensemaking in health management</strong> — exploring the role of design in tracking physical activity, exercise, sports, and injury rehabilitation.</p>
+    <p class="research-body">My work integrates physiology, psychology, and interaction design to craft meaningful data interactions that promote physical activity and sports engagement.</p>
+    <div class="tag-grid">
+      <span class="tag">Personal informatics</span>
+      <span class="tag">Health tracking</span>
+      <span class="tag">Wearables</span>
+      <span class="tag">Sports HCI</span>
+      <span class="tag">Self-tracking</span>
+      <span class="tag">Injury rehab</span>
+    </div>
+  </section>
+
+  <!-- NEWS -->
+  <section class="news-block">
+    <div class="block-label">Recent news</div>
+
+    <div class="news-item">
+      <div class="news-meta">Apr 2025 — CHI, Yokohama</div>
+      <p class="news-text"><strong>Trust in AI-assisted health decision-making</strong> — presented at CHI 2025.</p>
+      <a href="https://ris.utwente.nl/ws/portalfiles/portal/485148231/vandenBerg2025_CHI25.pdf" class="news-link" target="_blank" rel="noopener">PDF ↗</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">Apr 2025</div>
+      <p class="news-text">Board member of <strong>CHI Nederland</strong>, the ACM SIGCHI chapter for the Dutch HCI community.</p>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">May 2025 — EKSIG</div>
+      <p class="news-text"><strong>Danique Hoftsee</strong> on body maps and women's embodied experiences.</p>
+      <a href="https://dl.designresearchsociety.org/cgi/viewcontent.cgi?article=1009&context=eksig" class="news-link" target="_blank" rel="noopener">PDF ↗</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">2025 — 4TU DDW</div>
+      <p class="news-text"><strong>Freehabilitation Project</strong> selected for Dutch Design Week Expo — Health and Wellbeing.</p>
+      <a href="https://www.tandfonline.com/doi/pdf/10.1080/17483107.2025.2493223" class="news-link" target="_blank" rel="noopener">Paper ↗</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">Jul 2025 — DIS, Madeira</div>
+      <p class="news-text"><strong>Tina Ekhtiar</strong> — Changing Health Goals with Personal Informatics.</p>
+      <a href="https://dl.acm.org/doi/pdf/10.1145/3715336.3735813" class="news-link" target="_blank" rel="noopener">PDF ↗</a>
+    </div>
+
+    <div class="news-item">
+      <div class="news-meta">Sep 2024 — UT</div>
+      <p class="news-text">Track coordinator of the <strong>Human-Technology Relations</strong> master's specialisation, Industrial Design Engineering, UT.</p>
+    </div>
+
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="pubs-block">
+    <div class="block-label">Key publications</div>
+    <div class="pubs-grid">
+
+      <article class="pub-card">
+        <div class="pub-badge pub-badge-award">Honorable mention · CHI 2024</div>
+        <p class="pub-title">Is it just a score? Understanding Training Load Management Practices Beyond Sports Tracking</p>
+        <p class="pub-meta">Karahanoğlu, A., Coskun, A., Postma, D. et al. — CHI 2024, Honolulu</p>
+        <a href="http://armagank.com/wp-content/uploads/2024/02/2024_Is-it-just-a-score.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-badge pub-badge-open">Open access · Interacting with Computers</div>
+        <p class="pub-title">From Metrics to Experiences: Investigating How Sport Data Shapes Social Context, Self-Determination and Motivation</p>
+        <p class="pub-meta">Postma, D., van Delden, R., Reidsma, D. & Karahanoğlu, A. — 2024</p>
+        <a href="https://doi.org/10.1093/iwc/iwae012" class="pub-link" target="_blank" rel="noopener">DOI ↗</a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-badge pub-badge-award">Honorable mention · DIS 2023</div>
+        <p class="pub-title">Goals for Goal Setting: A Scoping Review on Personal Informatics</p>
+        <p class="pub-meta">Ekhtiar, T., Karahanoğlu, A., Gouveia, R., Ludden, G. — DIS 2023, Pittsburgh</p>
+        <a href="http://armagank.com/wp-content/uploads/2023/06/2023_Goals-for-Goal-Setting.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+      </article>
+
+      <article class="pub-card">
+        <div class="pub-badge pub-badge-journal">Journal · IJHCI 2022</div>
+        <p class="pub-title">Data Sensemaking in Self-Tracking: Towards a New Generation of Self-Tracking Tools</p>
+        <p class="pub-meta">Coskun, A. & Karahanoğlu, A. — International Journal of Human-Computer Interaction, 2022</p>
+        <a href="http://armagank.com/wp-content/uploads/2023/06/2022_IJHCI_Data-Sensemaking-in-Self-Tracking.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+      </article>
+
+    </div>
+    <div class="pubs-more">
+      <a href="https://scholar.google.com" class="btn-ghost" target="_blank" rel="noopener">All publications →</a>
+    </div>
+  </section>
+
+</div><!-- /body-grid -->
+
+<!-- CONTACT -->
+<section id="contact" class="contact-strip">
+  <div class="contact-left">
+    Collaborating, working together,<br>
+    <span>or just having a chat about your research?</span>
+  </div>
+  <div class="contact-right">
+    <a href="mailto:a.karahanoglu@utwente.nl" class="contact-email">a.karahanoglu@utwente.nl</a>
+    <div class="contact-links">
+      <a href="https://www.linkedin.com/in/armağan-karahanoğlu-916b397/" class="contact-link" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://scholar.google.com" class="contact-link" target="_blank" rel="noopener">Scholar</a>
+      <a href="https://www.twitter.com/armgnkr" class="contact-link" target="_blank" rel="noopener">Twitter</a>
+      <a href="https://www.utwente.nl" class="contact-link" target="_blank" rel="noopener">UT page</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-l">© 2025 Armağan Karahanoğlu</div>
+  <div class="footer-r">University of Twente · Faculty ET · DPM · Enschede, NL</div>
+</footer>
+
+</body>
+</html>
