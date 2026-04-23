@@ -325,9 +325,49 @@
     @media (max-width: 900px) {
       nav { padding: 14px 20px; }
       .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; }
-      .hero-left { padding: 48px 20px 40px; }
-      .hero-photo { height: 320px; }
+
+      /* Mobiel: foto als achtergrond, tekst eroverheen met overlay */
+      .hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        min-height: 480px;
+        position: relative;
+      }
+
+      /* foto vult hele hero */
+      .hero-photo {
+        position: absolute;
+        inset: 0;
+        height: auto;
+        z-index: 0;
+      }
+
+      .hero-photo img {
+        position: absolute;
+        top: 0; right: 0;
+        height: 100%;
+        width: auto;
+      }
+
+      /* sterke overlay van links zodat tekst leesbaar is */
+      .hero-photo::after {
+        background: linear-gradient(
+          to right,
+          rgba(242,240,235,0.97) 0%,
+          rgba(242,240,235,0.92) 50%,
+          rgba(242,240,235,0.5) 80%,
+          rgba(242,240,235,0.0) 100%
+        );
+      }
+
+      .hero-left {
+        position: relative;
+        z-index: 1;
+        padding: 52px 24px 48px;
+        background: transparent;
+        max-width: 85%;
+      }
+
       .hero-name { font-size: 32px; }
       .body-grid { grid-template-columns: 1fr; }
       .research-block { padding: 40px 20px; border-right: none; border-bottom: 0.5px solid var(--border); }
