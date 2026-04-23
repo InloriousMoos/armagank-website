@@ -13,21 +13,21 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Syne:wght@600;700;800&family=Syne+Mono&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --bg:#f2f0eb;--bg-2:#e8e5de;--bg-3:#ebe8e1;--bg-4:#e2dfd8;--bg-5:#d8d5ce;--teal:#21bda1;--teal-d:#0f6e56;--blue:#21759b;--ink:#0f0f0f;--muted:rgba(15,15,15,0.55);--subtle:rgba(15,15,15,0.38);--border:rgba(15,15,15,0.1); }
+    :root { --bg:#f2f0eb;--bg-2:#e8e5de;--bg-3:#ebe8e1;--bg-4:#e2dfd8;--bg-5:#d8d5ce;--teal:#21bda1;--teal-d:#0f6e56;--blue:#21759b;--ink:#0f0f0f;--muted:rgba(15,15,15,0.75);--subtle:rgba(15,15,15,0.55);--border:rgba(15,15,15,0.1); }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); overflow-x: hidden; }
     a { color: inherit; }
     nav { position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 16px 48px; background: var(--bg); border-bottom: 0.5px solid var(--border); }
     .nav-logo img { height: 26px; }
     .nav-links { display: flex; list-style: none; }
-    .nav-links a { font-size: 11px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--subtle); text-decoration: none; padding: 5px 14px; transition: color 0.15s; }
+    .nav-links a { font-size: 13px; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; color: var(--subtle); text-decoration: none; padding: 5px 14px; transition: color 0.15s; }
     .nav-links a:hover, .nav-links a.active { color: var(--ink); }
     .nav-tag { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.04em; }
 
     .page-header { background: var(--bg-2); padding: 64px 52px 52px; border-bottom: 0.5px solid var(--border); }
     .page-header-eyebrow { font-family: 'Syne Mono', monospace; font-size: 10px; color: var(--teal); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
     .page-header h1 { font-family: 'Syne', sans-serif; font-size: 36px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1.1; margin-bottom: 16px; }
-    .page-header p { font-size: 14px; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 580px; }
+    .page-header p { font-size: 15.5px; font-weight: 400; color: var(--muted); line-height: 1.75; max-width: 580px; }
     .page-header a { color: var(--blue); text-decoration: none; }
     .page-header a:hover { text-decoration: underline; }
 
@@ -50,33 +50,33 @@
     .pub-badge-award   { background: rgba(186,117,23,0.12); color: #854f0b; }
     .pub-badge-open    { background: rgba(33,189,161,0.12);  color: #0f6e56; }
     .pub-badge-conf    { background: rgba(33,117,155,0.12);  color: #21759b; }
-    .pub-badge-journal { background: rgba(80,80,80,0.1);     color: rgba(15,15,15,0.5); }
+    .pub-badge-journal { background: rgba(80,80,80,0.1);     color: rgba(15,15,15,0.6); }
 
     .pub-body {}
-    .pub-title { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.4; margin-bottom: 6px; }
-    .pub-authors { font-size: 12px; font-weight: 300; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
+    .pub-title { font-size: 15.5px; font-weight: 500; color: var(--ink); line-height: 1.4; margin-bottom: 6px; }
+    .pub-authors { font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.5; margin-bottom: 6px; }
     .pub-authors strong { color: var(--ink); font-weight: 500; }
-    .pub-venue { font-size: 12px; font-weight: 300; color: var(--muted); margin-bottom: 8px; font-style: italic; }
+    .pub-venue { font-size: 13px; font-weight: 400; color: var(--muted); margin-bottom: 8px; font-style: italic; }
     .pub-links { display: flex; gap: 12px; }
     .pub-link { font-family: 'Syne Mono', monospace; font-size: 9px; color: var(--teal); text-decoration: none; letter-spacing: 0.06em; text-transform: uppercase; }
     .pub-link:hover { text-decoration: underline; }
     .pub-link-doi { color: var(--blue); }
 
     .scholar-cta { margin-top: 48px; padding: 32px; background: var(--bg-2); border: 0.5px solid var(--border); border-radius: 2px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .scholar-cta p { font-size: 14px; font-weight: 300; color: var(--muted); }
+    .scholar-cta p { font-size: 15.5px; font-weight: 400; color: var(--muted); }
     .btn-ghost { font-size: 10px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--subtle); background: none; border: 0.5px solid rgba(15,15,15,0.2); padding: 10px 24px; cursor: pointer; border-radius: 2px; text-decoration: none; display: inline-block; transition: all 0.15s; white-space: nowrap; }
-    .btn-ghost:hover { color: var(--ink); border-color: rgba(15,15,15,0.5); }
+    .btn-ghost:hover { color: var(--ink); border-color: rgba(15,15,15,0.6); }
 
     .contact-strip { background: var(--blue); padding: 40px 48px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
     .contact-left { font-size: 20px; font-weight: 500; color: #f2f0eb; line-height: 1.35; }
-    .contact-left span { color: rgba(242,240,235,0.5); font-weight: 300; }
+    .contact-left span { color: rgba(242,240,235,0.5); font-weight: 400; }
     .contact-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; flex-shrink: 0; }
-    .contact-email { font-family: 'Syne Mono', monospace; font-size: 13px; color: #f2f0eb; text-decoration: none; }
+    .contact-email { font-family: 'Syne Mono', monospace; font-size: 14.5px; color: #f2f0eb; text-decoration: none; }
     .contact-links { display: flex; gap: 16px; }
     .contact-link { font-family: 'Syne Mono', monospace; font-size: 9px; color: rgba(242,240,235,0.5); letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; }
     .contact-link:hover { color: #f2f0eb; }
     footer { background: var(--bg-2); border-top: 0.5px solid var(--border); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; }
-    .footer-l, .footer-r { font-family: 'Syne Mono', monospace; font-size: 9px; color: rgba(15,15,15,0.3); letter-spacing: 0.06em; }
+    .footer-l, .footer-r { font-family: 'Syne Mono', monospace; font-size: 9px; color: rgba(15,15,15,0.6); letter-spacing: 0.06em; }
 
     @media (max-width: 900px) {
       nav { padding: 14px 20px; } .nav-links { display: none; }
@@ -93,7 +93,7 @@
 
 <nav>
   <div class="nav-logo">
-    <img src="https://armagank.com/wp-content/uploads/2020/10/logo_54.png" alt="Armağan Karahanoğlu"
+    <img src="assets/logo.png" alt="Armağan Karahanoğlu"
       onerror="this.outerHTML='<span style=\'font-family:Syne,sans-serif;font-size:14px;font-weight:700;color:#0f0f0f\'>Armağan K.</span>'">
   </div>
   <ul class="nav-links">
@@ -125,7 +125,7 @@
         <p class="pub-authors">Arum, S., Genç, U., Reidsma, D. & <strong>Karahanoğlu, A.</strong></p>
         <p class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI '25), Yokohama, Japan</p>
         <div class="pub-links">
-          <a href="http://armagank.com/wp-content/uploads/2025/02/2025_Selective-Trust.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="assets/pdf/2025_Selective-Trust.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
           <a href="https://doi.org/10.1145/3706598.3713462" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
         </div>
       </div>
@@ -178,7 +178,7 @@
         <p class="pub-authors"><strong>Karahanoğlu, A.</strong>, Coskun, A., Postma, D., Scheltinga, B., Gouveia, R., Reidsma, D. & Renalda, J.</p>
         <p class="pub-venue">CHI Conference on Human Factors in Computing Systems (CHI '24), Honolulu, HI, USA</p>
         <div class="pub-links">
-          <a href="http://armagank.com/wp-content/uploads/2024/02/2024_Is-it-just-a-score.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="assets/pdf/2024_Is-it-just-a-score.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
           <a href="https://doi.org/10.1145/3613904.3642051" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
         </div>
       </div>
@@ -219,7 +219,7 @@
         <p class="pub-authors">Ekhtiar, T., <strong>Karahanoğlu, A.</strong>, Gouveia, R. & Ludden, G.</p>
         <p class="pub-venue">ACM Designing Interactive Systems Conference (DIS '23), Pittsburgh, PA, USA</p>
         <div class="pub-links">
-          <a href="http://armagank.com/wp-content/uploads/2023/06/2023_Goals-for-Goal-Setting.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="assets/pdf/2023_Goals-for-Goal-Setting.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
           <a href="https://doi.org/10.1145/3563657.3596087" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
         </div>
       </div>
@@ -232,7 +232,7 @@
         <p class="pub-authors">Postma, D., <strong>Karahanoğlu, A.</strong>, van Delden, R. & Reidsma, D.</p>
         <p class="pub-venue">CHI PLAY Companion '23, Stratford, ON, Canada</p>
         <div class="pub-links">
-          <a href="http://armagank.com/wp-content/uploads/2024/02/2023_The-Cost-of-Reward.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="assets/pdf/2023_The-Cost-of-Reward.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
           <a href="https://doi.org/10.1145/3573382.3616102" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
         </div>
       </div>
@@ -249,7 +249,7 @@
         <p class="pub-authors">Coskun, A. & <strong>Karahanoğlu, A.</strong></p>
         <p class="pub-venue">International Journal of Human–Computer Interaction, 39:12, 2339–2360, 2022</p>
         <div class="pub-links">
-          <a href="http://armagank.com/wp-content/uploads/2023/06/2022_IJHCI_Data-Sensemaking-in-Self-Tracking.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
+          <a href="assets/pdf/2022_IJHCI_Data-Sensemaking-in-Self-Tracking.pdf" class="pub-link" target="_blank" rel="noopener">PDF ↗</a>
           <a href="https://doi.org/10.1080/10447318.2022.2075637" class="pub-link pub-link-doi" target="_blank" rel="noopener">DOI ↗</a>
         </div>
       </div>
